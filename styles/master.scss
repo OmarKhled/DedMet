@@ -1,0 +1,276 @@
+// Typography - Work Sans
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+// Global Vars
+:root {
+  // Science Blue
+  --scienceBlue: #0066CC;
+  --scienceBlue-100: #64A3E2;
+  --scienceBlue-200: #4993DD;
+  --scienceBlue-300: #2F83D7;
+  --scienceBlue-400: #1774D1;
+  --scienceBlue-500: #005AB5;
+  --scienceBlue-600: #004F9E;
+  --scienceBlue-700: #004488;
+  --scienceBlue-800: #003871;
+
+  // Denim Blue
+  --denimBlue: #71bfff;
+  --denimBlue-100: #B2D8F5;
+  --denimBlue-200: #A3D0F3;
+  --denimBlue-300: #95C9F1;
+  --denimBlue-400: #86C1EF;
+  --denimBlue-500: #6BA6D2;
+  --denimBlue-600: #5E91B8;
+  --denimBlue-700: #507C9E;
+  --denimBlue-800: #436783;
+
+  // Light Navy
+  --lightNavy: #184c7f;
+  --lightNavy-100: #6392BB;
+  --lightNavy-200: #4C80AD;
+  --lightNavy-300: #376F9F;
+  --lightNavy-400: #255F92;
+  --lightNavy-500: #124775;
+  --lightNavy-600: #103E67;
+  --lightNavy-700: #0E3558;
+  --lightNavy-800: #0B2C49;
+
+  // Lily White
+  --lilyWhite: #ebf6ff;
+  --lilyWhite-100: #EAF8FF;
+  --lilyWhite-200: #CEDCE2;
+  --lilyWhite-300: #B4C0C6;
+  --lilyWhite-400: #9AA5AA;
+  --lilyWhite-500: #80898D;
+}
+
+html,
+body,
+* {
+  font-family: "Work Sans", Helvetica, Verdana, Garamond, sans-serif,
+    "Times New Roman", serif;
+}
+body {
+  position: relative;
+}
+* {
+  line-height: calc(1.1em + 0.5rem);
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+small {
+  color: var(--lightNavy);
+}
+h1 {
+  font-size: clamp(2.5rem, 5vw, 3.125rem);
+  font-weight: 800;
+}
+h2 {
+  font-size: clamp(1.857rem, 4vw, 2.5rem);
+  font-weight: 700;
+}
+h3 {
+  font-size: clamp(1.75rem, 3vw, 2rem);
+  font-weight: 700;
+}
+h4 {
+  font-size: clamp(1.375rem, 3vw, 1.75rem);
+  font-weight: 600;
+}
+h5 {
+  font-size: clamp(1.25rem, 3vw, 1.5rem);
+  font-weight: 500;
+}
+h6 {
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+p {
+  font-size: clamp(1rem, 2vw, 1.0075rem);
+  font-weight: 400;
+}
+
+// CSS Reset
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+}
+html,
+body {
+  height: 100%;
+  overflow-x: hidden;
+}
+@media (prefers-reduced-motion: no-preference) {
+  html, body {
+    scroll-behavior: smooth;
+  }
+}
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+// Removing Browser Defaults
+html, body {
+  background-color: var(--lilyWhite);
+}
+a {
+  cursor: pointer;
+}
+a,
+a:focus,
+a:hover {
+  text-decoration: none;
+}
+a,
+a:focus {
+  color: var(--lightNavy);
+  transition: all 150ms;
+}
+a:hover {
+  opacity: 0.9;
+}
+::selection {
+  background-color: var(--lightNavy-500);
+  color: #fff;
+}
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+// Containers
+.__root {
+  width: min(100%, 1280px);
+  padding: 0 max(40px, 4%);
+  height: 100%;
+  margin: auto;
+  margin-top: 6.5rem;
+}
+
+// Utility Classes
+.flex {
+  display: flex;
+}
+.block {
+  display: block !important;
+}
+.gap-h-dot5 > * + * {
+  margin-left: 0.5rem;
+}
+.gap-h-1 > * + * {
+  margin-left: 1rem;
+}
+.gap-h-2 > * + * {
+  margin-left: 2rem;
+}
+.gap-h-3 > * + * {
+  margin-left: 3rem;
+}
+.gap-v-1 > * + * {
+  margin-top: 1rem;
+}
+.gap-v-2 > * + * {
+  margin-top: 2rem;
+}
+.gap-v-3 > * + * {
+  margin-top: 3rem;
+}
+.gap-v-4 > * + * {
+  margin-top: 4rem;
+}
+.light {
+  font-weight: 200;
+}
+.regular {
+  font-weight: 400;
+}
+.medium {
+  font-weight: 600;
+}
+.bold {
+  font-weight: 700;
+}
+.text-center {
+  text-align: center;
+}
+.w-100 {
+  width: 100% !important;
+}
+.w-75 {
+  width: 75% !important;
+}
+.w-50 {
+  width: 50% !important;
+}
+.w-25 {
+  width: 25% !important;
+}
+.h-100 {
+  height: 100% !important;
+}
+.h-75 {
+  height: 75% !important;
+}
+.h-50 {
+  height: 50% !important;
+}
+.h-25 {
+  height: 25% !important;
+}
+.link {
+  transition: 300ms all;
+}
+.blue {
+  color: blue;
+}
+.link:hover {
+  text-decoration: underline;
+  opacity: 0.9;
+}
+
+// Animations
+.fade {
+  transition: all 350ms;
+  opacity: 1;
+}
+
+// Component Styles
+@import "./pages/home";
+
+@import "./nav";
+@import "./buttons";

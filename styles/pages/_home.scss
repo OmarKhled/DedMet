@@ -1,0 +1,21 @@
+.__root {
+  &.home {
+    width: min(100%, 1338px);
+    margin-top: 0;
+    @media (max-width: 700px) {
+      margin-top: 6.5rem;
+    }
+  }
+}
+.hero {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  .details {
+    margin-top: 7rem;
+    flex: 1;
+  }
+  .lottie {
+    flex: 0.76;
+  }
+}
