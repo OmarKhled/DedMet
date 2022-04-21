@@ -3,6 +3,7 @@ import type { AppProps } from "next/app";
 import "../styles/master.scss";
 import "../styles/bootstrap-grid.css";
 import Head from "next/head";
+import Script from "next/script";
 import Navbar from "../components/Navbar";
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -55,7 +56,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <span id="top"></span>
       <Navbar />
       <Component {...pageProps} />
-      <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+      <Script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></Script>
     </>
   );
   // return <Component {...pageProps} />
