@@ -1,6 +1,7 @@
 .__root {
   &.home {
-    width: min(100%, 1338px);
+    width: auto;
+    max-width: 1300px;
     margin-top: 0;
     @media (max-width: 700px) {
       margin-top: 6.5rem;

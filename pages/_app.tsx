@@ -1,6 +1,7 @@
 import type { AppProps } from "next/app";
 
 import "../styles/master.scss";
+import "../styles/bootstrap-grid.css";
 import Head from "next/head";
 import Navbar from "../components/Navbar";
 

@@ -1,14 +1,14 @@
 .btn {
   display: inline-block;
   background: none;
-  padding: 14px 20px;
-  font-size: 14px;
+  padding: 20px 30px;
+  font-size: 15px;
   font-weight: 600;
   border-radius: 9px;
   transition: all 350ms;
-  &:hover {
-    opacity: 0.9;
-  }
+  // &:hover {
+  //   opacity: 0.9;
+  // }
   &:active, &:focus {
     box-shadow: 0 0 0 0.25rem rgb(49 132 253 / 50%);
     color: #fff !important;

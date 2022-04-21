@@ -1,10 +1,10 @@
 /// <reference types="next" />
 /// <reference types="next/image-types/global" />
 
-declare namespace JSX {
-  interface IntrinsicElements {
-    "lottie-player": any;
-  }
+export as namespace JSX;
+
+export interface IntrinsicElements {
+  "lottie-player": any;
 }
 
 // NOTE: This file should not be edited

@@ -9,7 +9,7 @@ const Home: NextPage = () => {
         <title key={"title"}>DedMet</title>
       </Head>
       <main className="__root home">
-        <div className="hero">
+        <section className="hero">
           <div className="details gap-v-1">
             <h1>Bring the timeline back!</h1>
             <p>
@@ -28,7 +28,7 @@ const Home: NextPage = () => {
               autoplay
             ></lottie-player>
           </div>
-        </div>
+        </section>
       </main>
     </div>
   );

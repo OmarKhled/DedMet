@@ -1,5 +1,5 @@
 nav {
-  transition: all 350ms;
+  // transition: all 350ms;
   width: 100%;
   ul {
     list-style: none;
@@ -35,7 +35,7 @@ nav {
   }
   .container {
     margin: auto;
-    width: min(100%, 1280px);
+    max-width: 1280px;;
     padding: 40px;
     display: grid;
     grid-template-columns: auto 1fr auto;
