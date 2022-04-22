@@ -50,7 +50,7 @@ const Navbar: FC = () => {
         </div>
         {pathname == "/" && (
           <div className="cta">
-            <Button style="primary" type="link" href="/subscribe">
+            <Button style="primary" tag="link" href="/subscribe">
               Subscribe
             </Button>
           </div>
