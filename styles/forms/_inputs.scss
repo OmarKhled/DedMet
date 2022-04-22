@@ -1,0 +1,63 @@
+input, select {
+  border: none;
+  margin: 0.5rem 0;
+  width: 100%;
+}
+
+input[type="text"] {
+  max-width: 360px;
+}
+
+label {
+  display: block;
+  // margin: 0 0.9rem 0;
+}
+
+input[type="text"], input[type="email"], input[type="tel"], input[type="number"] {
+  border: var(--lightNavy-300) solid 1px;
+  border-radius: 5px;
+  padding: 0.3rem 0.8rem;
+  color: var(--lightNavy-800);
+  @extend .medium;
+  &::selection {
+    background-color: var(--denimBlue);
+    color: var(--lightNavy-800);
+  }
+  &::placeholder {
+    @extend .light;
+    font-size: 13px;
+  }
+  &:active, &:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.14rem var(--denimBlue-100);
+  }
+}
+.err {
+  border: red solid 1px !important;
+  box-shadow: 0 0 3px 0px red;
+  &:active, &:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.14rem rgba(202, 0, 0, 0.288) !important;
+  }
+}
+input[type="submit"] {
+  cursor: pointer;
+}
+select {
+  border: var(--lightNavy-300) solid 1px;
+  border-radius: 5px;
+  height: fit-content;
+  padding: 0.53rem 0.8rem;
+  color: var(--lightNavy-800);
+  background-color: white;
+  @extend .light;
+    font-size: 13px;
+  &::selection {
+    background-color: var(--denimBlue);
+    color: var(--lightNavy-800);
+  }
+  &:active, &:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.14rem var(--denimBlue-100);
+  }
+}

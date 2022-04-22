@@ -1,27 +1,45 @@
-import { FC, ReactElement, ReactNode } from "react";
+import { FC, ReactNode } from "react";
 interface Params {
-  type?: "link" | "button";
+  tag?: "link" | "button" | "input";
+  type?: "button" | "submit" | "reset" | undefined;
   style?: "primary" | "secondary";
   href?: string;
   children?: ReactNode;
   className?: string;
+  value?: string;
 }
-const Button: FC<Params> = ({ type, style, href, children, className }) => {
+const Button: FC<Params> = ({
+  tag,
+  style,
+  href,
+  children,
+  className,
+  type,
+  value,
+}) => {
   return (
     <>
-      {type == "button" ? (
-        <button className={`btn btn-${style} ${className}`}>{children}</button>
-      ) : (
+      {tag == "button" ? (
+        <button type={type} className={`btn btn-${style} ${className}`}>
+          {children}
+        </button>
+      ) : tag == "link" ? (
         <a href={href} className={`btn btn-${style} ${className}`}>
           {children}
         </a>
+      ) : (
+        <input
+          type={type}
+          className={`btn btn-${style} ${className}`}
+          value={value}
+        />
       )}
     </>
   );
 };
 
 Button.defaultProps = {
-  type: "link",
+  tag: "link",
   style: "primary",
   href: "/subscribe",
   children: <></>,

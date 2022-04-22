@@ -1,0 +1,30 @@
+.formContainer {
+  width: fit-content;
+  margin-top: 2rem;
+  .head {
+    background-color: var(--lightNavy);
+    padding: 10px 20px;
+    border-radius: 10px 10px 0 0;
+    p {
+      color: #fff !important;
+    }
+    ::selection {
+      background-color: var(--denimBlue);
+      color: var(--lightNavy);
+    }
+  }
+  .body {
+    background-color: var(--lilyWhite-100);
+    padding: 2rem;
+    border-radius: 0 0 10px 10px;
+    min-width: min(40rem, 90vw);
+    .formGrid {
+      --auto-grid-min-size: 12rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(var(--auto-grid-min-size), 1fr));
+      grid-gap: 0.7rem;
+    }
+  }
+}
+
+@import "./inputs"

@@ -39,7 +39,7 @@
 
   // Lily White
   --lilyWhite: #ebf6ff;
-  --lilyWhite-100: #EAF8FF;
+  --lilyWhite-100: #f6fcff;
   --lilyWhite-200: #CEDCE2;
   --lilyWhite-300: #B4C0C6;
   --lilyWhite-400: #9AA5AA;
@@ -241,6 +241,7 @@ button {
 }
 .w-100 {
   width: 100% !important;
+  max-width: 100% !important;
 }
 .w-75 {
   width: 75% !important;
@@ -286,3 +287,4 @@ button {
 @import "./nav";
 @import "./buttons";
 @import "./footer";
+@import "./forms/";
