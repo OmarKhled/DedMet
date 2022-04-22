@@ -58,7 +58,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Navbar />
       <Component {...pageProps} />
       <Footer />
-      <Script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></Script>
+      <Script src="https://unpkg.com/@dotlottie/player-component@1.0.0/dist/dotlottie-player.js"></Script>
     </>
   );
   // return <Component {...pageProps} />

@@ -22,12 +22,12 @@ const Navbar: FC = () => {
         <div className="logo">
           <Link href={"/"}>
             <a className="logo-full">
-              <img src="/logo.svg" height={35} />
+              <img src="/logo.svg" height={35} alt="logo" />
             </a>
           </Link>
           <Link href={"/"}>
             <a className="icon">
-              <img src="/icon.svg" height={35} />
+              <img src="/icon.svg" height={35} alt="logo" />
             </a>
           </Link>
         </div>
@@ -45,7 +45,7 @@ const Navbar: FC = () => {
             </li>
           </ul>
           <button className="hamburgerMenu" onClick={() => setOpened(!opened)}>
-            <img src="/hamburger.svg" />
+            <img src="/hamburger.svg" alt="hamburger menu" />
           </button>
         </div>
         {pathname == "/" && (
