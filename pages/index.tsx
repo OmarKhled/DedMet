@@ -1,10 +1,16 @@
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import type { NextPage } from "next";
 import Head from "next/head";
 
 import Button from "../components/Button";
 
 const Hero: FC = () => {
+  useEffect(() => {
+    window.CanvasRenderer = class {
+      setProjectInterface() {}
+    };
+  }, []);
+
   return (
     <section className="hero">
       <div className="details gap-v-1">
@@ -20,7 +26,7 @@ const Hero: FC = () => {
           autoplay
           loop
           mode="normal"
-          data-bm-renderer="svg"
+          renderer="svg"
           src="/lottie.lottie"
         ></dotlottie-player>
       </div>
