@@ -37,21 +37,21 @@ const Home: NextPage = () => {
           <div className="row justify-content-center align-items-center">
             <div className="col-12 col-sm-6 col-lg-4 mt-5">
               <img
-                src="/images/browsers/firefox.png"
+                src="/images/browsers/firefox.webp"
                 height={60}
                 className="mx-auto browser"
               />
             </div>
             <div className="col-12 col-sm-6 col-lg-4 mt-5">
               <img
-                src="/images/browsers/chrome.png"
+                src="/images/browsers/chrome.webp"
                 height={60}
                 className="mx-auto browser"
               />
             </div>
             <div className="col-12 col-sm-6 col-lg-4 mt-5">
               <img
-                src="/images/browsers/edge.png"
+                src="/images/browsers/edge.webp"
                 height={75}
                 className="mx-auto browser"
               />
