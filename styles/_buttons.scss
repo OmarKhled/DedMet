@@ -1,11 +1,12 @@
 .btn {
   display: inline-block;
-  background: none;
   padding: 20px 30px;
+  width: fit-content;
   font-size: 15px;
   font-weight: 600;
   border-radius: 9px;
   transition: all 350ms;
+  background: none;
   // &:hover {
   //   opacity: 0.9;
   // }

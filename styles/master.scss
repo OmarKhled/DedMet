@@ -3,6 +3,7 @@
 
 // Global Vars
 :root {
+  --containerWidth: 1300px;
   // Science Blue
   --scienceBlue: #0066CC;
   --scienceBlue-100: #64A3E2;
@@ -92,7 +93,7 @@ h6 {
   font-weight: 500;
 }
 p {
-  font-size: clamp(1rem, 2vw, 1.0075rem);
+  font-size: clamp(1.1rem, 2vw, 1.2rem);
   font-weight: 400;
 }
 
@@ -175,11 +176,21 @@ button {
 
 // Containers
 .__root {
-  width: min(100%, 1280px);
+  width: min(100%, var(--containerWidth));
   padding: 0 min(5%, 40px);
   height: 100%;
   margin: auto;
   margin-top: 6.5rem;
+}
+.__root section {
+  padding: 1rem;
+  .main-title {
+    text-align: center;
+  }
+  margin-top: min(6rem, 10.3vw);
+}
+.__root section:first-of-type {
+  margin-top: 0;
 }
 
 // Utility Classes
@@ -214,7 +225,7 @@ button {
   margin-top: 4rem;
 }
 .light {
-  font-weight: 200;
+  font-weight: 300;
 }
 .regular {
   font-weight: 400;
@@ -274,3 +285,4 @@ button {
 
 @import "./nav";
 @import "./buttons";
+@import "./footer";

@@ -1,0 +1,13 @@
+footer {
+  margin-top: 4rem;
+  .tail {
+    background-color: var(--lightNavy-600);
+    padding: 15px;
+    p {
+      font-size: 16px;
+      color: #fff !important;
+    }
+    width: 100%;
+    text-align: center;
+  }
+}

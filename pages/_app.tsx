@@ -5,6 +5,7 @@ import "../styles/bootstrap-grid.css";
 import Head from "next/head";
 import Script from "next/script";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -56,6 +57,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <span id="top"></span>
       <Navbar />
       <Component {...pageProps} />
+      <Footer />
       <Script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></Script>
     </>
   );

@@ -10,9 +10,9 @@ const Button: FC<Params> = ({ type, style, href, children, className }) => {
   return (
     <>
       {type == "button" ? (
-        <button className={`btn btn-${style}${className}`}>{children}</button>
+        <button className={`btn btn-${style} ${className}`}>{children}</button>
       ) : (
-        <a href={href} className={`btn btn-${style}${className}`}>
+        <a href={href} className={`btn btn-${style} ${className}`}>
           {children}
         </a>
       )}
