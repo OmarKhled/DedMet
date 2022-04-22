@@ -4,7 +4,7 @@ import Button from "../components/Button";
 
 import data from "../data/personalData";
 
-const subscribe: NextPage = () => {
+const Subscribe: NextPage = () => {
   const {
     register,
     handleSubmit,
@@ -54,4 +54,4 @@ const subscribe: NextPage = () => {
   );
 };
 
-export default subscribe;
+export default Subscribe;
