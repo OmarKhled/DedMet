@@ -63,7 +63,7 @@ const Home: NextPage = () => {
             <img src="/images/mockup.webp" />
           </div>
           <div className="details">
-            <h3>It's Just a simple Extension!</h3>
+            <h3>It&apos;s Just a simple Extension!</h3>
             <p>
               A simple Browser Extension can recover you the timeline widget in
               Moodle
