@@ -59,9 +59,9 @@ const PersonalDetails: FC = () => {
                 )}
               </div>
             ))}
-            <Button type="submit" tag="input">
+            {/* <Button type="submit" tag="input">
               Submit
-            </Button>
+            </Button> */}
           </form>
         </div>
       </div>

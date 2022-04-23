@@ -37,24 +37,33 @@ const Subscribe: NextPage = () => {
           >
             <div className="">
               <label>Card Number</label>
-              <input type="text" data-paylib="number" />
+              <input
+                type="text"
+                data-paylib="number"
+                placeholder="XXXX XXXX XXXX XXXX"
+              />
             </div>
             <div className="">
               <label>Expiry Date (MM)</label>
-              <input type="text" data-paylib="expmonth" />
+              <input type="text" data-paylib="expmonth" placeholder="XX" />
             </div>
             <div className="">
               <label>Expiry Date (YYYY)</label>
-              <input type="text" data-paylib="expyear" />
+              <input
+                // className="icon"
+                type="text"
+                data-paylib="expyear"
+                placeholder="XX"
+              />
             </div>
             <div className="">
               <label>Security Code</label>
-              <input type="text" data-paylib="cvv" />
+              <input type="text" data-paylib="cvv" placeholder="XXX" />
             </div>
-            <Button type="submit" value="Place order" />
           </form>
         </div>
       </div>
+      <Button type="submit" value="Place order" className="mx-auto mt-4" />
     </div>
   );
 };
