@@ -5,6 +5,7 @@ interface input {
   label: string;
   placeholder?: string;
   required: boolean;
+  validation?: Object;
 }
 const data: input[] = [
   {
@@ -30,7 +31,7 @@ const data: input[] = [
   },
   {
     name: "phone",
-    type: "tel",
+    type: "number",
     placeholder: "01X XXXX XXXX",
     label: "Phone",
     required: true,
@@ -63,9 +64,19 @@ const data: input[] = [
   },
   {
     name: "nu id",
-    type: "text",
-    placeholder: "21XXXXXXX",
+    type: "number",
+    placeholder: "2XXXXXXXX",
     label: "NU ID",
+    validation: {
+      maxLength: {
+        value: 9,
+        message: "Please enter a valid NU ID",
+      },
+      minLength: {
+        value: 9,
+        message: "Please enter a valid NU ID",
+      },
+    },
     required: true,
   },
 ];

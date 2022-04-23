@@ -56,6 +56,10 @@ function MyApp({ Component, pageProps }: AppProps) {
       </Head>
       <span id="top"></span>
       <Navbar />
+      <script
+        async
+        src="https://secure-egypt.paytabs.com/payment/js/paylib.js"
+      ></script>
       <Component {...pageProps} />
       <Footer />
       <Script src="https://unpkg.com/@dotlottie/player-component@1.0.0/dist/dotlottie-player.js"></Script>

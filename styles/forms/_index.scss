@@ -24,6 +24,16 @@
       grid-template-columns: repeat(auto-fill, minmax(var(--auto-grid-min-size), 1fr));
       grid-gap: 0.7rem;
     }
+    .errors {
+      background: #f8d7da;
+      padding: 1rem 1rem;
+      border: 1px solid #f5c2c7;
+      border-radius: 5px;
+      small {
+        color: #842029 !important; 
+      }
+      margin-bottom: 1rem;
+    }
   }
 }
 

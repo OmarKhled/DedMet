@@ -19,14 +19,18 @@ const Button: FC<Params> = ({
 }) => {
   return (
     <>
-      {tag == "button" ? (
-        <button type={type} className={`btn btn-${style} ${className}`}>
-          {children}
-        </button>
-      ) : tag == "link" ? (
-        <a href={href} className={`btn btn-${style} ${className}`}>
-          {children}
-        </a>
+      {!type ? (
+        tag == "button" ? (
+          <button type={type} className={`btn btn-${style} ${className}`}>
+            {children}
+          </button>
+        ) : (
+          tag == "link" && (
+            <a href={href} className={`btn btn-${style} ${className}`}>
+              {children}
+            </a>
+          )
+        )
       ) : (
         <input
           type={type}

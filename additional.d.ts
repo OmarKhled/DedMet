@@ -6,6 +6,7 @@ export interface IntrinsicElements {
 }
 
 declare global {
+  declare const paylib: any;
   interface Window {
     CanvasRenderer: any;
   }
