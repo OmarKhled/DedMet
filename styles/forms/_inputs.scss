@@ -30,7 +30,7 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="number"]
 }
 .err {
   border: red solid 1px !important;
-  box-shadow: 0 0 3px 0px red;
+  box-shadow: 0 0 1px 0px red;
   &:active, &:focus {
     outline: none;
     box-shadow: 0 0 0 0.14rem rgba(202, 0, 0, 0.288) !important;

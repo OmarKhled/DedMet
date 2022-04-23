@@ -2,7 +2,7 @@
   &.home {
     width: auto;
     max-width: var(--containerWidth);
-    margin-top: 0;
+    margin-top: 1rem;
     @media (max-width: 700px) {
       margin-top: 5rem;
     }
@@ -12,9 +12,9 @@
   display: flex;
   gap: 1rem;
   width: 100%;
+  margin-bottom: 12rem;
   .details {
     margin-top: clamp(3rem, 9vw, 8rem);
-    // margin-top: 7rem;
     flex: 1;
   }
   .lottie {

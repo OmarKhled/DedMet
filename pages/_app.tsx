@@ -57,7 +57,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <span id="top"></span>
       <Navbar />
       <script
-        async
+        defer
         src="https://secure-egypt.paytabs.com/payment/js/paylib.js"
       ></script>
       <Component {...pageProps} />

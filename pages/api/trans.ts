@@ -16,6 +16,9 @@ const handler: (
       cart_currency: "EGP",
       cart_amount: 1,
       // "callback": "https://localhost:3000/",
+      framed: true,
+      framed_return_top: true,
+      framed_return_parent: true,
       return: "https://localhost:3000/api/success",
       customer_details: {
         name: req.body.name,

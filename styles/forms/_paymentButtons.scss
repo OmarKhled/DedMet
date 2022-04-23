@@ -1,0 +1,46 @@
+.paymentOptions {
+  --auto-grid-min-size: 15rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1rem;
+  .paymentOption {
+    background-color: white;
+    height: 100%;
+    width: 100%;
+    padding: 1.4rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    &>* {
+      cursor: pointer;
+      color: #727272;
+    }
+    cursor: pointer;
+    outline: #e6e6e6 1px solid;
+    border-radius: 8px;
+    input[type="radio"] {
+      display: none !important;
+    }
+    &:hover {
+      cursor: pointer;
+      outline: #d6d5d5 1px solid;
+      &>*{
+        color: #414141 !important;
+      }
+    }
+  }
+}
+
+input[type="radio"]:checked + label {
+  outline: var(--scienceBlue) 2px solid;
+  &>*{
+    color: var(--scienceBlue) !important;
+  }
+  &:hover {
+    outline: var(--scienceBlue-300) 2px solid;
+    &>*{
+      color: var(--scienceBlue-400) !important;
+    }
+  }
+}
+
