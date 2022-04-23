@@ -16,7 +16,17 @@ const handler: (
       cart_currency: "EGP",
       cart_amount: 1,
       // "callback": "https://localhost:3000/",
-      return: "https://localhost:3000/",
+      return: "https://localhost:3000/api/success",
+      customer_details: {
+        name: req.body.name,
+        email: req.body.email,
+        gender: req.body.gender,
+        phone: req.body.phone,
+        faculty: req.body.faculty,
+        major: req.body.major,
+        "Academic Year": req.body["Academic Year"],
+        "nu id": req.body["nu id"],
+      },
     };
     const response = await fetch(
       "https://secure-egypt.paytabs.com/payment/request",
@@ -30,8 +40,8 @@ const handler: (
       }
     );
     const content = await response.json();
-    console.log(content);
-    res.redirect(content.redirect_url);
+    console.log("Content is:", content);
+    // res.redirect(content.redirect_url);
     // res.status(200).send({ ...response });
     return;
   }

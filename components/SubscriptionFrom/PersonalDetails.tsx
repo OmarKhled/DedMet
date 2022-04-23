@@ -1,16 +1,13 @@
 import { FC } from "react";
-import { useForm } from "react-hook-form";
-import Button from "../Button";
+import { useFormContext } from "react-hook-form";
 
 import data from "../../data/personalData";
 
 const PersonalDetails: FC = () => {
   const {
     register,
-    handleSubmit,
     formState: { errors },
-  } = useForm();
-  const onSubmit = (data: any) => console.log(data);
+  } = useFormContext();
 
   return (
     <div>
@@ -28,7 +25,7 @@ const PersonalDetails: FC = () => {
               ))}
             </div>
           )}
-          <form className="formGrid" onSubmit={handleSubmit(onSubmit)}>
+          <div className="formGrid">
             {data.map((item) => (
               <div key={item.name}>
                 <label>{item.label}</label>
@@ -62,7 +59,7 @@ const PersonalDetails: FC = () => {
             {/* <Button type="submit" tag="input">
               Submit
             </Button> */}
-          </form>
+          </div>
         </div>
       </div>
     </div>
