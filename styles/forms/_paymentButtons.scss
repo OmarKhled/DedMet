@@ -1,8 +1,10 @@
 .paymentOptions {
-  --auto-grid-min-size: 15rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 1rem;
+  @media (max-width: 500px) {
+    grid-template-columns: 1fr;
+  }
   .paymentOption {
     background-color: white;
     height: 100%;
