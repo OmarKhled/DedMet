@@ -8,6 +8,7 @@ interface Params {
   className?: string;
   value?: string;
   disabled?: boolean;
+  onClick?: () => void;
 }
 const Button: FC<Params> = ({
   tag,
@@ -18,12 +19,14 @@ const Button: FC<Params> = ({
   type,
   value,
   disabled,
+  onClick,
 }) => {
   return (
     <>
       {!type ? (
         tag == "button" ? (
           <button
+            onClick={onClick}
             disabled={disabled}
             type={type}
             className={`btn btn-${style} ${className}`}
@@ -32,7 +35,11 @@ const Button: FC<Params> = ({
           </button>
         ) : (
           tag == "link" && (
-            <a href={href} className={`btn btn-${style} ${className}`}>
+            <a
+              href={href}
+              onClick={onClick}
+              className={`btn btn-${style} ${className}`}
+            >
               {children}
             </a>
           )
@@ -40,6 +47,7 @@ const Button: FC<Params> = ({
       ) : (
         <input
           disabled={disabled}
+          onClick={onClick}
           type={type}
           className={`btn btn-${style} ${className}`}
           value={value}

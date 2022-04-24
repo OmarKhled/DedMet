@@ -6,6 +6,7 @@ interface input {
   placeholder?: string;
   required: boolean;
   validation?: Object;
+  value?: string;
 }
 const data: input[] = [
   {
@@ -14,6 +15,7 @@ const data: input[] = [
     placeholder: "Enter your name",
     label: "Name",
     required: true,
+    value: "Omar Khaled",
   },
   {
     name: "email",
@@ -21,6 +23,7 @@ const data: input[] = [
     placeholder: "example@domain.com",
     label: "Email",
     required: true,
+    value: "o.abuelfetohahmed@nu.edu.eg",
   },
   {
     name: "gender",
@@ -28,6 +31,7 @@ const data: input[] = [
     options: ["Select Gender", "Male", "Female"],
     label: "Gender",
     required: true,
+    value: "Male",
   },
   {
     name: "phone",
@@ -35,6 +39,7 @@ const data: input[] = [
     placeholder: "01X XXXX XXXX",
     label: "Phone",
     required: true,
+    value: "01068405513",
   },
   {
     name: "faculty",
@@ -48,6 +53,7 @@ const data: input[] = [
     ],
     label: "School",
     required: true,
+    value: "Engineering and Applied Science",
   },
   {
     name: "major",
@@ -55,6 +61,7 @@ const data: input[] = [
     placeholder: "ex: ECE",
     label: "Major",
     required: true,
+    value: "ECE",
   },
   {
     name: "Academic Year",
@@ -69,6 +76,7 @@ const data: input[] = [
     ],
     label: "Academic Year",
     required: true,
+    value: "Sophomore",
   },
   {
     name: "NU ID",
@@ -86,6 +94,7 @@ const data: input[] = [
       },
     },
     required: true,
+    value: "202000446",
   },
 ];
 

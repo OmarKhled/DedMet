@@ -1,6 +1,6 @@
 import axios from "axios";
 import type { NextApiRequest, NextApiResponse } from "next";
-import { FormData } from "../../data/personalData";
+import { FormData } from "../../../data/personalData";
 
 // API Key ZXlKaGJHY2lPaUpJVXpVeE1pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SmpiR0Z6Y3lJNklrMWxjbU5vWVc1MElpd2ljSEp2Wm1sc1pWOXdheUk2TVRZMk9UTTRMQ0p1WVcxbElqb2lNVFkxTURjMk1UYzNPUzQ1TVRJNU15SjkuLWxKR2lwRmVJeEhfUWYzQUhwSXZ0SU1odVA2cnNVb3A0RDlPMU1XMUk5ZmNkLWQ5VGhCRTRnRDF1bi1ZTXhlQko2NEx6bjJjam1aWHVmSjM3WlE1d0E=
 

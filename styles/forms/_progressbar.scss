@@ -1,0 +1,39 @@
+.progressBar {
+  margin: auto;
+  margin-top: 1rem;
+  width: min(90%, 400px);
+  height: 14px;
+  position: relative;
+  .bar {
+    height: 100%; width: 100%;
+    background-color: var(--scienceBlue);
+    border-radius: 50vw;
+  }
+  .stage {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    z-index: 3;
+    transform: translateY(-30%);
+    border: 5px var(--scienceBlue) solid;
+    background-color: #fff;
+    color: var(--scienceBlue);
+    font-weight: 600;
+    transition: all 350ms;
+  }
+  .stage1 {
+    left: 0;
+  }
+  .stage2 {
+    right: 0;
+  }
+  .active {
+    color: white;
+    background-color: var(--scienceBlue);
+  }
+}

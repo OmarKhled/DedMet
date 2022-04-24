@@ -46,3 +46,8 @@ input[type="radio"]:checked + label {
   }
 }
 
+.paymentIframe {
+  html {
+    color: red !important;
+  }
+}

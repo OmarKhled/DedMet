@@ -201,6 +201,9 @@ button {
 .block {
   display: block !important;
 }
+.p-relative {
+  position: relative;
+}
 .gap-h-dot5 > * + * {
   margin-left: 0.5rem;
 }
@@ -262,6 +265,9 @@ button {
 .h-50 {
   height: 50% !important;
 }
+.mb--1 {
+  margin-bottom: -1rem !important;
+}
 .h-25 {
   height: 25% !important;
 }
@@ -289,3 +295,4 @@ button {
 @import "./buttons";
 @import "./footer";
 @import "./forms/";
+@import "./loadingSpinner";
