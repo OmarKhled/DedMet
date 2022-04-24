@@ -7,6 +7,7 @@ interface Params {
   children?: ReactNode;
   className?: string;
   value?: string;
+  disabled?: boolean;
 }
 const Button: FC<Params> = ({
   tag,
@@ -16,12 +17,17 @@ const Button: FC<Params> = ({
   className,
   type,
   value,
+  disabled,
 }) => {
   return (
     <>
       {!type ? (
         tag == "button" ? (
-          <button type={type} className={`btn btn-${style} ${className}`}>
+          <button
+            disabled={disabled}
+            type={type}
+            className={`btn btn-${style} ${className}`}
+          >
             {children}
           </button>
         ) : (
@@ -33,6 +39,7 @@ const Button: FC<Params> = ({
         )
       ) : (
         <input
+          disabled={disabled}
           type={type}
           className={`btn btn-${style} ${className}`}
           value={value}
@@ -48,6 +55,7 @@ Button.defaultProps = {
   href: "/subscribe",
   children: <></>,
   className: "",
+  disabled: false,
 };
 
 export default Button;

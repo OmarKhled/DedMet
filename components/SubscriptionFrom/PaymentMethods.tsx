@@ -7,7 +7,7 @@ const PaymentMethods: FC = () => {
   const { register } = useFormContext();
   return (
     <div className="mt-3">
-      <h5>Payment Method</h5>
+      {/* <h6>Payment Method</h6> */}
       <div className="paymentOptions mt-2">
         <div className="">
           <input

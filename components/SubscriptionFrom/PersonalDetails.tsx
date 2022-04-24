@@ -45,20 +45,30 @@ const PersonalDetails: FC = () => {
                 ) : (
                   <>
                     <select
-                      {...register(item.name, { required: item.required })}
+                      {...register(item.name, {
+                        required: {
+                          value: item.required,
+                          message: `${item.label} Field is required`,
+                        },
+                      })}
                       name={item.name}
+                      defaultValue={""}
+                      className={`${errors[item.name] ? "err" : ""}`}
                     >
-                      {item.options?.map((option) => (
-                        <option key={option}>{option}</option>
+                      {item.options?.map((option, index) => (
+                        <option
+                          value={index == 0 ? "" : option}
+                          disabled={index == 0}
+                          key={option}
+                        >
+                          {option}
+                        </option>
                       ))}
                     </select>
                   </>
                 )}
               </div>
             ))}
-            {/* <Button type="submit" tag="input">
-              Submit
-            </Button> */}
           </div>
         </div>
       </div>

@@ -22,4 +22,11 @@
   &:active {
     box-shadow: 0 0 0 0.25rem var(--scienceBlue-100);
   }
+  &:disabled {
+    background-color: var(--lilyWhite-500);
+    cursor: default;
+    &:hover {
+      opacity: 1;
+    }
+  }
 }

@@ -25,7 +25,7 @@ const data: input[] = [
   {
     name: "gender",
     type: "select",
-    options: ["Male", "Female"],
+    options: ["Select Gender", "Male", "Female"],
     label: "Gender",
     required: true,
   },
@@ -40,6 +40,7 @@ const data: input[] = [
     name: "faculty",
     type: "select",
     options: [
+      "Select School",
       "Engineering and Applied Science",
       "Computer Science",
       "Buisness Adminstration",
@@ -58,12 +59,19 @@ const data: input[] = [
   {
     name: "Academic Year",
     type: "select",
-    options: ["Freshman", "Sophomore", "Junior", "Senior", "Graduating Senior"],
-    label: "Name",
+    options: [
+      "Select Academic Year",
+      "Freshman",
+      "Sophomore",
+      "Junior",
+      "Senior",
+      "Graduating Senior",
+    ],
+    label: "Academic Year",
     required: true,
   },
   {
-    name: "nu id",
+    name: "NU ID",
     type: "number",
     placeholder: "2XXXXXXXX",
     label: "NU ID",
@@ -80,5 +88,21 @@ const data: input[] = [
     required: true,
   },
 ];
+
+export interface FormData {
+  name?: string;
+  email?: string;
+  gender?: string;
+  phone?: string;
+  faculty?:
+    | "Engineering and Applied Science"
+    | "Computer Science"
+    | "Buisness Adminstration"
+    | "Biotechnology";
+  major?: string;
+  "Academic Year"?: string;
+  "NU ID"?: string;
+  paymentOption?: "card" | "wallet";
+}
 
 export default data;
