@@ -6,9 +6,10 @@ const PaymentDetails: FC = () => {
   const { getValues } = useFormContext();
 
   useEffect(() => {
-    Paddle.Checkout.open({
+    const id = Number(process.env.NEXT_PUBLIC_DEDMET_PRODUCT_ID);
+    window.Paddle.Checkout.open({
       method: "inline",
-      product: 27618,
+      product: id,
       allowQuantity: false,
       disableLogout: true,
       frameTarget: "paymentDetails",
@@ -18,7 +19,6 @@ const PaymentDetails: FC = () => {
       email: getValues("email"),
       country: "EG",
     });
-    // Paddle.Checkout.open({ product: 768379 });
   }, []);
 
   return (

@@ -1,10 +1,10 @@
 .spinner {
-  margin: 100px auto;
+  display: inline-block;
+  margin: 3px;
   width: 40px;
   height: 40px;
   position: relative;
   text-align: center;
-  
   -webkit-animation: sk-rotate 2.0s infinite linear;
   animation: sk-rotate 2.0s infinite linear;
 }

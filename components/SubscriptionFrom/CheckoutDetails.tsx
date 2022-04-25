@@ -1,4 +1,6 @@
-import { FC } from "react";
+import axios from "axios";
+import React, { FC, useEffect, useState } from "react";
+import Price from "../Price";
 
 const CheckoutDetails: FC<{ size: "sm" | "lg" }> = ({ size }) => {
   return (
@@ -9,8 +11,9 @@ const CheckoutDetails: FC<{ size: "sm" | "lg" }> = ({ size }) => {
         the extension for a semester from now.
       </p>
       <hr />
-      <small className="medium">
-        Total: <span className="totalPrice"> 1.18 USD</span>
+      <small className="medium d-inline-block">
+        Total:{" "}
+        <span className="totalPrice"> {<Price currency="USD" />} USD</span>
       </small>
     </div>
   );

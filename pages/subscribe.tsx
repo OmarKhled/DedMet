@@ -46,12 +46,7 @@ const Subscribe: NextPage = () => {
     setStage(query.stage ? Number(query.stage) : 1);
   }, [query]);
 
-  useEffect(() => {
-    // console.log(
-    //   Number(process.env.NEXT_PUBLIC_PADDLE_VENDOR_ID),
-    //   Boolean(process.env.NEXT_PUBLIC_PADDLE_SANDBOX)
-    // );
-  }, []);
+  useEffect(() => {}, []);
 
   return (
     <div className="__root">
@@ -67,11 +62,6 @@ const Subscribe: NextPage = () => {
                 onSubmit={handleSubmit(submitAction)}
                 className="p-relative"
               >
-                {/* {loading && (
-                  <div className="overlay">
-                    <LoadingSpinner />
-                  </div>
-                )} */}
                 <PersonalDetails />
                 <Button
                   type={"submit"}

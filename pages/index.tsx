@@ -3,6 +3,7 @@ import type { NextPage } from "next";
 import Head from "next/head";
 
 import Button from "../components/Button";
+import Price from "../components/Price";
 
 const Hero: FC = () => {
   useEffect(() => {
@@ -100,10 +101,12 @@ const Pricing: FC = () => {
     <section>
       <h2 className="light main-title">Affordable and Simple</h2>
       <div className="main-title mt-4">
-        <h3 className="bold d-inline">21.99 EGP</h3>{" "}
+        <h3 className="bold d-inline">
+          <Price currency="EGP" /> EGP
+        </h3>{" "}
         <small className="light">per semester</small>
       </div>
-      <Button className="mx-auto d-block mt-3">Subscripe</Button>
+      <Button className="mx-auto d-block mt-3">Subscribe</Button>
     </section>
   );
 };
