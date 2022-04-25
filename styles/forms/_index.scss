@@ -21,9 +21,9 @@ form {
     background-color: var(--lilyWhite-100);
     padding: 2rem;
     border-radius: 0 0 10px 10px;
-    min-width: min(40rem, 90vw);
+    min-width: min(50rem, 90vw);
     .formGrid {
-      --auto-grid-min-size: 12rem;
+      --auto-grid-min-size: 16rem;
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(var(--auto-grid-min-size), 1fr));
       grid-gap: 0.7rem;
@@ -42,5 +42,4 @@ form {
 }
 
 @import "./inputs";
-@import "./paymentButtons";
 @import "./progressbar"

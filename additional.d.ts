@@ -6,7 +6,29 @@ export interface IntrinsicElements {
 }
 
 declare global {
-  declare const paylib: any;
+  interface paddle {
+    Setup: any;
+    Checkout: {
+      open: ({
+        method,
+        product,
+        allowQuantity,
+        disableLogout,
+        frameTarget,
+        frameInitialHeight,
+        frameStyle,
+      }: {
+        method?: string;
+        product?: number;
+        allowQuantity?: boolean;
+        disableLogout?: boolean;
+        frameTarget?: string;
+        frameInitialHeight?: number;
+        frameStyle?: string;
+      }) => void;
+    };
+  }
+  declare const Paddle: paddle;
   interface Window {
     CanvasRenderer: any;
   }

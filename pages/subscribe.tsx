@@ -1,15 +1,14 @@
 import { NextPage } from "next";
 import { useRouter } from "next/router";
 import { FC, Suspense, useEffect, useState } from "react";
-import axios from "axios";
 
 import PersonalDetails from "../components/SubscriptionFrom/PersonalDetails";
 import { FormData } from "../data/personalData";
 
 import Button from "../components/Button";
 import { FormProvider, useForm } from "react-hook-form";
-import PaymentMethods from "../components/SubscriptionFrom/PaymentMethods";
 import LoadingSpinner from "../components/LoadingSpinner";
+import PaymentDetails from "../components/SubscriptionFrom/PaymentDetails";
 
 const ProgressBar: FC<{ stage: number }> = ({ stage }) => {
   return (
@@ -30,18 +29,17 @@ const Subscribe: NextPage = () => {
 
   const [stage, setStage] = useState<number>(1);
   const [loading, setLoading] = useState<boolean>(false);
-  const [token, setToken] = useState<string>("");
   const [msg, setMsg] = useState<string>("");
 
   const submitAction = async (data: FormData) => {
     setLoading(true);
-    const {
-      data: { token: paymentToken },
-    } = (await axios.post("/api/transactions", {
-      type: data.paymentOption,
-      data,
-    })) as { data: { token: string } };
-    setToken(paymentToken);
+    // const {
+    //   data: { token: paymentToken },
+    // } = (await axios.post("/api/transactions", {
+    //   type: data.paymentOption,
+    //   data,
+    // })) as { data: { token: string } };
+    // setToken(paymentToken);
     setLoading(false);
     setStage(2);
     window.onbeforeunload = null;
@@ -74,53 +72,79 @@ const Subscribe: NextPage = () => {
     setStage(query.stage ? Number(query.stage) : 1);
   }, [query]);
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    Paddle.Setup({
+      vendor: 146371,
+      eventCallback: (e: any) => {
+        console.log(e);
+      },
+    });
+  }, []);
   return (
     <div className="__root">
-      <h2 className="text-center">Subscription</h2>
-      <ProgressBar stage={stage} />
-      <FormProvider {...methods}>
-        {stage == 1 ? (
-          <form onSubmit={handleSubmit(submitAction)} className="p-relative">
-            {msg && (
-              <div className="errors mt-4 mb--1">
-                <small>{msg}</small>
-              </div>
-            )}
-            {loading && (
-              <div className="overlay">
-                <LoadingSpinner />
-              </div>
-            )}
-            <PersonalDetails />
-            <PaymentMethods />
-            <Button
-              type={"submit"}
-              value={`Next`}
-              className="ms-auto mt-4 d-block"
-            />
-          </form>
-        ) : (
-          <div>
-            <Suspense fallback={<LoadingSpinner />}>
-              <iframe
-                style={{ width: "100%", border: "none", maxWidth: "700px" }}
-                height="900px"
-                src={`https://accept.paymobsolutions.com/api/acceptance/iframes/368161?payment_token=${token}`}
-                className="mt-5 mx-auto d-block paymentIframe"
-              />
-              <Button
-                onClick={() => setStage(1)}
-                tag="button"
-                className="mx-auto mt-4 d-block"
-              >
-                Previous
-              </Button>
-            </Suspense>
+      <div className="checkoutGrid">
+        <div className="process">
+          <h2 className="text-center">Subscription</h2>
+          <ProgressBar stage={stage} />
+          <div className="paymentDetails-sm">
+            <h5 className="bold">DedMet Semester Lisence</h5>
+            <p>
+              Get the timeline back to moodle! This license will enable you to
+              enjoy the extension for a semester from now.
+            </p>
+            <hr />
+            <small className="medium">Total: 1.18 USD</small>
           </div>
-        )}
-        {/* <LoadingSpinner /> */}
-      </FormProvider>
+          <FormProvider {...methods}>
+            {stage == 1 ? (
+              <form
+                onSubmit={handleSubmit(submitAction)}
+                className="p-relative"
+              >
+                {msg && (
+                  <div className="errors mt-4 mb--1">
+                    <small>{msg}</small>
+                  </div>
+                )}
+                {loading && (
+                  <div className="overlay">
+                    <LoadingSpinner />
+                  </div>
+                )}
+                <PersonalDetails />
+                {/* <PaymentMethods /> */}
+                <Button
+                  type={"submit"}
+                  value={`Next`}
+                  className="ms-auto mt-4 d-block"
+                />
+              </form>
+            ) : (
+              <div id="checkout">
+                <Suspense fallback={<LoadingSpinner />}>
+                  <PaymentDetails />
+                  <Button
+                    onClick={() => setStage(1)}
+                    tag="button"
+                    className="mx-auto mt-4 d-block"
+                  >
+                    Previous
+                  </Button>
+                </Suspense>
+              </div>
+            )}
+          </FormProvider>
+        </div>
+        <div className="paymentDetails-lg">
+          <h5 className="bold">DedMet Semester Lisence</h5>
+          <p>
+            Get the timeline back to moodle! This license will enable you to
+            enjoy the extension for a semester from now.
+          </p>
+          <hr />
+          <small className="medium">Total: 1.18 USD</small>
+        </div>
+      </div>
     </div>
   );
 };

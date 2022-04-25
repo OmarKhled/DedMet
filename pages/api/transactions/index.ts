@@ -56,36 +56,36 @@ const handler: (
       })) as OrderResponse;
 
       console.log(id);
-      if (type == "card") {
-        const {
-          data: { token: paymentToken },
-        } = (await axios.post(
-          "https://accept.paymob.com/api/acceptance/payment_keys",
-          {
-            auth_token: token,
-            amount_cents: 118,
-            expiration: 3600,
-            currency: "EGP",
-            order_id: id,
-            billing_data: {
-              first_name: data.name,
-              last_name: data.name,
-              email: data.email,
-              phone_number: data.phone,
-              street: "NA",
-              floor: "NA",
-              building: "NA",
-              apartment: "NA",
-              city: "NA",
-              country: "NA",
-            },
-            lock_order_when_paid: true,
-            integration_id: 1974358,
-          }
-        )) as TokenResponse;
-        res.status(200).send({ token: paymentToken });
-      } else if (type == "wallet") {
-      }
+      // if (type == "card") {
+      const {
+        data: { token: paymentToken },
+      } = (await axios.post(
+        "https://accept.paymob.com/api/acceptance/payment_keys",
+        {
+          auth_token: token,
+          amount_cents: 118,
+          expiration: 3600,
+          currency: "EGP",
+          order_id: id,
+          billing_data: {
+            first_name: data.name,
+            last_name: data.name,
+            email: data.email,
+            phone_number: data.phone,
+            street: "NA",
+            floor: "NA",
+            building: "NA",
+            apartment: "NA",
+            city: "NA",
+            country: "NA",
+          },
+          lock_order_when_paid: true,
+          integration_id: 1974358,
+        }
+      )) as TokenResponse;
+      res.status(200).send({ token: paymentToken });
+      // } else if (type == "wallet") {
+      // }
     } catch (error) {
       console.log(error);
     }
