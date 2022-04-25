@@ -1,3 +1,4 @@
+import paddle from "./paddle.d.ts";
 export as namespace JSX;
 
 export interface IntrinsicElements {
@@ -6,30 +7,41 @@ export interface IntrinsicElements {
 }
 
 declare global {
-  interface paddle {
-    Setup: any;
-    Checkout: {
-      open: ({
-        method,
-        product,
-        allowQuantity,
-        disableLogout,
-        frameTarget,
-        frameInitialHeight,
-        frameStyle,
-      }: {
-        method?: string;
-        product?: number;
-        allowQuantity?: boolean;
-        disableLogout?: boolean;
-        frameTarget?: string;
-        frameInitialHeight?: number;
-        frameStyle?: string;
-      }) => void;
-    };
+  interface Customer {
+    total: number;
+    total_tax: number;
+    currency: string;
   }
-  declare const Paddle: paddle;
+
+  type PaddleEvent =
+    | "Checkout.Loaded"
+    | "Checkout.Close"
+    | "Checkout.Complete"
+    | "Checkout.User.Subscribed"
+    | "Checkout.Quantity.Change"
+    | "Checkout.Login"
+    | "Checkout.Logout"
+    | "Checkout.PaymentMethodSelected"
+    | "Checkout.Coupon.Add"
+    | "Checkout.Coupon.Submit"
+    | "Checkout.Coupon.Cancel"
+    | "Checkout.Coupon.Applied"
+    | "Checkout.Coupon.Remove"
+    | "Checkout.Error"
+    | "Checkout.Location.Submit"
+    | "Checkout.Language.Change"
+    | "Checkout.Vat.Add"
+    | "Checkout.Vat.Cancel"
+    | "Checkout.Vat.Submit"
+    | "Checkout.Vat.Applied"
+    | "Checkout.Vat.Remove"
+    | "Checkout.WireTransfer.Complete"
+    | "Checkout.PaymentComplete"
+    | "Checkout.PaymentMethodChange"
+    | "Checkout.WireTransfer.PaymentMethodChange";
+
   interface Window {
+    Paddle: paddle;
     CanvasRenderer: any;
   }
 }

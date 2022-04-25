@@ -54,9 +54,8 @@ function MyApp({ Component, pageProps }: AppProps) {
 
         <title key={"title"}>DedMet</title>
       </Head>
-      {/* <span id="top"></span> */}
+      <span id="top"></span>
       <Navbar />
-      <script defer src="https://cdn.paddle.com/paddle/paddle.js"></script>
       <Component {...pageProps} />
       <Footer />
       <Script src="https://unpkg.com/@dotlottie/player-component@1.0.0/dist/dotlottie-player.js"></Script>

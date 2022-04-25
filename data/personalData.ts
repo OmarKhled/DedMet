@@ -98,7 +98,7 @@ const data: input[] = [
   },
 ];
 
-export interface FormData {
+export interface FormDataInterface {
   name?: string;
   email?: string;
   gender?: string;

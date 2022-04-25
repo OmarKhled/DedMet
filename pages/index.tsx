@@ -19,7 +19,9 @@ const Hero: FC = () => {
           DedMet Brings the timeline back to Moodle so you never miss a deadline
           again!
         </p>
-        <Button>Install Now</Button>
+        <Button tag="link" href="/subscribe">
+          Install Now
+        </Button>
       </div>
       <div className="lottie">
         <dotlottie-player
@@ -101,7 +103,7 @@ const Pricing: FC = () => {
         <h3 className="bold d-inline">21.99 EGP</h3>{" "}
         <small className="light">per semester</small>
       </div>
-      <Button className="mx-auto d-block mt-3">Subscribe</Button>
+      <Button className="mx-auto d-block mt-3">Subscripe</Button>
     </section>
   );
 };

@@ -1,5 +1,6 @@
 import { FC, useEffect } from "react";
 import { useFormContext } from "react-hook-form";
+import LoadingSpinner from "../LoadingSpinner";
 
 const PaymentDetails: FC = () => {
   const { getValues } = useFormContext();
@@ -7,13 +8,15 @@ const PaymentDetails: FC = () => {
   useEffect(() => {
     Paddle.Checkout.open({
       method: "inline",
-      product: 768379,
+      product: 27618,
       allowQuantity: false,
       disableLogout: true,
       frameTarget: "paymentDetails",
       frameInitialHeight: 416,
       frameStyle:
         "width:100%; min-width:312px; background-color: transparent; border: none;",
+      email: getValues("email"),
+      country: "EG",
     });
     // Paddle.Checkout.open({ product: 768379 });
   }, []);
