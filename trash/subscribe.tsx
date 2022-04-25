@@ -11,14 +11,14 @@ import { FormProvider, useForm } from "react-hook-form";
 const Subscribe: NextPage = () => {
   // Paylib trans auth
   useEffect(() => {
-    paylib.inlineForm({
-      key: "CDKMQH-NMDT6D-THD6DK-HPHTMR",
-      form: document.getElementById("payform"),
-      autoSubmit: true,
-      callback: function (response: any) {
-        console.log(response);
-      },
-    });
+    // paylib.inlineForm({
+    //   key: "CDKMQH-NMDT6D-THD6DK-HPHTMR",
+    //   form: document.getElementById("payform"),
+    //   autoSubmit: true,
+    //   callback: function (response: any) {
+    //     console.log(response);
+    //   },
+    // });
   }, []);
 
   const methods = useForm();
