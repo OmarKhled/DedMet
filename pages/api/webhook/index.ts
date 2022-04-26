@@ -25,8 +25,7 @@ const handler: (
     const body = req.query;
     console.log(body);
     try {
-      console.log(req.body.passthrough);
-      console.log(JSON.parse(req.body.passthrough));
+      console.log(JSON.parse(body.passthrough as string));
       const licenseKey = v1().split("-")[0];
       const docRef = await addDoc(collection(db, "users"), {
         ...JSON.parse(body.passthrough as string),
@@ -43,15 +42,18 @@ const handler: (
     const body = req.body;
     console.log(body);
     try {
-      console.log(req.body.passthrough);
-      console.log(JSON.parse(req.body.passthrough));
-      const licenseKey = v1().split("-")[0];
-      const docRef = await addDoc(collection(db, "users"), {
-        ...JSON.parse(body.passthrough),
-        licenseKey,
-      });
-      console.log("Document written with ID: ", docRef.id);
-      res.status(200).send({ msg: "Transaction Hooked" });
+      if (req.body.passthrough) {
+        console.log(JSON.parse(body.passthrough));
+        const licenseKey = v1().split("-")[0];
+        const docRef = await addDoc(collection(db, "users"), {
+          ...JSON.parse(body.passthrough),
+          licenseKey,
+        });
+        console.log("Document written with ID: ", docRef.id);
+        res.status(200).send({ msg: "Transaction Hooked" });
+      } else {
+        res.status(201).send({ msg: "Invalid" });
+      }
     } catch (e) {
       console.error("Error adding document: ", e);
       res.status(500).send({ msg: "Server Error" });
