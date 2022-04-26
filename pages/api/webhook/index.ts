@@ -22,10 +22,10 @@ const handler: (
   req: NextApiRequest,
   res: NextApiResponse<any>
 ) => void = async (req: NextApiRequest, res: NextApiResponse<any>) => {
-  if (req.method == "GET") {
-    const query = req.query;
-    const passthrough: string = query.passthrough as string;
-    const data = JSON.parse(JSON.parse(passthrough));
+  if (req.method == "POST") {
+    const body = req.body;
+    const passthrough: string = body.passthrough as string;
+    const data = JSON.parse(passthrough);
     try {
       const isStringified = (str: string) => {
         try {
@@ -39,11 +39,11 @@ const handler: (
         const docRef = await addDoc(collection(db, "users"), {
           ...data,
           licenseKey,
-          p_currency: query.p_currency,
-          p_price: query.p_price,
-          p_order_id: query.p_order_id,
-          p_coupon_savings: query.p_coupon_savings,
-          p_coupon: query.p_coupon,
+          p_currency: body.p_currency,
+          p_price: body.p_price,
+          p_order_id: body.p_order_id,
+          p_coupon_savings: body.p_coupon_savings,
+          p_coupon: body.p_coupon,
         });
         sendEmail(data, licenseKey);
         console.log(
@@ -53,6 +53,8 @@ const handler: (
           licenseKey
         );
         res.status(200).send({ msg: "Transaction Hooked" });
+      } else {
+        res.status(300).send({ msg: "Passthrough data don't exist" });
       }
     } catch (e) {
       console.error("Error adding document: ", e);
@@ -60,7 +62,7 @@ const handler: (
     }
     return;
   } else {
-    res.status(201).send({ msg: "Invalid request method" });
+    res.status(300).send({ msg: "Invalid request method" });
   }
 };
 
