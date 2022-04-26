@@ -24,6 +24,7 @@ const handler: (
   if (req.method == "POST") {
     const body = req.body;
     // const body = req.data;
+    console.log(body);
     try {
       console.log(req.body.passthrough);
       const licenseKey = v1();
