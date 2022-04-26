@@ -15,7 +15,7 @@ const PaddleInitializer: FC = () => {
       defer
       src="https://cdn.paddle.com/paddle/paddle.js"
       onLoad={() => {
-        if (process.env.NODE_ENV == "development") {
+        if (Boolean(process.env.NEXT_PUBLIC_PADDLE_SANDBOX)) {
           window.Paddle.Environment.set("sandbox");
         }
         window.Paddle.Setup({
