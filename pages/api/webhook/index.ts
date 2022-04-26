@@ -53,7 +53,7 @@ const handler: (
           "License Key of ",
           licenseKey
         );
-        res.status(200).send({ msg: "Transaction Hooked" });
+        res.status(200).send(licenseKey);
       } else {
         res.status(500).send({ msg: "Passthrough data don't exist" });
       }
