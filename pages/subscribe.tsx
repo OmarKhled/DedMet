@@ -23,6 +23,7 @@ const Subscribe: NextPage = () => {
   const [stage, setStage] = useState<number>(1);
 
   const submitAction = async (data: FormDataInterface) => {
+    console.log(methods.getValues());
     setStage(2);
     window.onbeforeunload = null;
   };

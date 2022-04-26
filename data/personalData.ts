@@ -23,7 +23,7 @@ const data: input[] = [
     placeholder: "example@domain.com",
     label: "Email",
     required: true,
-    value: "o.abuelfetohahmed@nu.edu.eg",
+    value: "omrcorc@gmail.com",
   },
   {
     name: "gender",

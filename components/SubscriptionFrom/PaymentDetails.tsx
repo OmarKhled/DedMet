@@ -1,6 +1,5 @@
 import { FC, useEffect } from "react";
 import { useFormContext } from "react-hook-form";
-import LoadingSpinner from "../LoadingSpinner";
 
 const PaymentDetails: FC = () => {
   const { getValues } = useFormContext();
@@ -18,6 +17,7 @@ const PaymentDetails: FC = () => {
         "width:100%; min-width:312px; background-color: transparent; border: none;",
       email: getValues("email"),
       country: "EG",
+      passthrough: JSON.stringify(getValues()),
     });
   }, []);
 
