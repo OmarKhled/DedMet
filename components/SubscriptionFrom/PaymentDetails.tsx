@@ -13,8 +13,7 @@ const PaymentDetails: FC = () => {
       disableLogout: true,
       frameTarget: "paymentDetails",
       frameInitialHeight: 416,
-      frameStyle:
-        "width:100%; min-width:312px; background-color: transparent; border: none;",
+      frameStyle: "width:100%; background-color: transparent; border: none;",
       email: getValues("email"),
       country: "EG",
       passthrough: JSON.stringify(getValues()),
