@@ -24,6 +24,7 @@ const handler: (
 ) => void = async (req: NextApiRequest, res: NextApiResponse<any>) => {
   if (req.method == "POST") {
     const body = req.body;
+    console.log(body);
     const passthrough: string = body.passthrough as string;
     const data = JSON.parse(passthrough);
     try {
