@@ -55,7 +55,7 @@ const handler: (
         );
         res.status(200).send({ msg: "Transaction Hooked" });
       } else {
-        res.status(300).send({ msg: "Passthrough data don't exist" });
+        res.status(500).send({ msg: "Passthrough data don't exist" });
       }
     } catch (e) {
       console.error("Error adding document: ", e);
@@ -63,7 +63,7 @@ const handler: (
     }
     return;
   } else {
-    res.status(300).send({ msg: "Invalid request method" });
+    res.status(500).send({ msg: "Invalid request method" });
   }
 };
 
