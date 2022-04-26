@@ -25,10 +25,10 @@ const handler: (
     const body = req.body;
     // const body = req.data;
     console.log(body);
-    console.log(body.passthrough);
     try {
       console.log(req.body.passthrough);
-      const licenseKey = v1();
+      console.log(JSON.parse(req.body.passthrough));
+      const licenseKey = v1().split("-")[0];
       const docRef = await addDoc(collection(db, "users"), {
         ...JSON.parse(body.passthrough),
         licenseKey,
