@@ -30,7 +30,7 @@ const handler: (
       console.log(req.body.passthrough);
       const licenseKey = v1();
       const docRef = await addDoc(collection(db, "users"), {
-        ...JSON.parse(body.passthrough as string),
+        ...JSON.parse(body.passthrough),
         licenseKey,
       });
       console.log("Document written with ID: ", docRef.id);
