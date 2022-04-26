@@ -25,6 +25,7 @@ const handler: (
     const body = req.body;
     // const body = req.data;
     console.log(body);
+    console.log(body.passthrough);
     try {
       console.log(req.body.passthrough);
       const licenseKey = v1();
