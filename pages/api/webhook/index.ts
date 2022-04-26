@@ -54,7 +54,7 @@ const handler: (
           body.passthrough,
           typeof data
         );
-        sendEmail(data, licenseKey);
+        // sendEmail(data, licenseKey);
         console.log(
           "Document written with ID: ",
           docRef.id,
