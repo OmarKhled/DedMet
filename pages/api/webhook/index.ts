@@ -46,7 +46,7 @@ const handler: (
           p_coupon_savings: body.p_coupon_savings,
           p_coupon: body.p_coupon,
         });
-        sendEmail(data, licenseKey);
+        // sendEmail(data, licenseKey);
         console.log(
           "Document written with ID: ",
           docRef.id,
