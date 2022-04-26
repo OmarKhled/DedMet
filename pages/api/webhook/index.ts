@@ -2,6 +2,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, addDoc } from "firebase/firestore";
 import { v1 } from "uuid";
+import sendEmail from "../../../mails/nodeMailer";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDCarRqgo2HNHPWHza6Vp33-OeyLH9G4vQ",
@@ -39,11 +40,12 @@ const handler: (
         const docRef = await addDoc(collection(db, "users"), {
           ...data,
           licenseKey,
-          p_currency: body.p_currency,
-          p_price: body.p_price,
-          p_order_id: body.p_order_id,
-          p_coupon_savings: body.p_coupon_savings,
-          p_coupon: body.p_coupon,
+          currency: body.p_currency,
+          price: body.p_price,
+          order_id: body.p_order_id,
+          coupon_savings: body.p_coupon_savings,
+          coupon: body.p_coupon,
+          event_time: body.event_time,
         });
         console.log(
           body.p_price,
@@ -52,7 +54,7 @@ const handler: (
           body.passthrough,
           typeof data
         );
-        // sendEmail(data, licenseKey);
+        sendEmail(data, licenseKey);
         console.log(
           "Document written with ID: ",
           docRef.id,
