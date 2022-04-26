@@ -2,6 +2,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, addDoc } from "firebase/firestore";
 import { v1 } from "uuid";
+import sendEmail from "../../../mails/nodeMailer";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDCarRqgo2HNHPWHza6Vp33-OeyLH9G4vQ",
@@ -22,43 +23,44 @@ const handler: (
   res: NextApiResponse<any>
 ) => void = async (req: NextApiRequest, res: NextApiResponse<any>) => {
   if (req.method == "GET") {
-    const body = req.query;
-    console.log(body);
+    const query = req.query;
+    const passthrough: string = query.passthrough as string;
+    const data = JSON.parse(JSON.parse(passthrough));
     try {
-      console.log(JSON.parse(body.passthrough as string));
-      const licenseKey = v1().split("-")[0];
-      const docRef = await addDoc(collection(db, "users"), {
-        ...JSON.parse(body.passthrough as string),
-        licenseKey,
-      });
-      console.log("Document written with ID: ", docRef.id);
-      res.status(200).send({ msg: "Transaction Hooked" });
-    } catch (e) {
-      console.error("Error adding document: ", e);
-      res.status(500).send({ msg: "Server Error" });
-    }
-    return;
-  } else if ((req.method = "POST")) {
-    const body = req.body;
-    console.log(body);
-    try {
-      if (req.body.passthrough) {
-        console.log(JSON.parse(body.passthrough));
+      const isStringified = (str: string) => {
+        try {
+          return JSON.parse(str);
+        } catch (err) {
+          return false;
+        }
+      };
+      if (isStringified(passthrough)) {
         const licenseKey = v1().split("-")[0];
         const docRef = await addDoc(collection(db, "users"), {
-          ...JSON.parse(body.passthrough),
+          ...data,
           licenseKey,
+          p_currency: query.p_currency,
+          p_price: query.p_price,
+          p_order_id: query.p_order_id,
+          p_coupon_savings: query.p_coupon_savings,
+          p_coupon: query.p_coupon,
         });
-        console.log("Document written with ID: ", docRef.id);
+        sendEmail(data, licenseKey);
+        console.log(
+          "Document written with ID: ",
+          docRef.id,
+          "License Key of ",
+          licenseKey
+        );
         res.status(200).send({ msg: "Transaction Hooked" });
-      } else {
-        res.status(201).send({ msg: "Invalid" });
       }
     } catch (e) {
       console.error("Error adding document: ", e);
-      res.status(500).send({ msg: "Server Error" });
+      res.status(500).send({ msg: "Server Error", error: e });
     }
     return;
+  } else {
+    res.status(201).send({ msg: "Invalid request method" });
   }
 };
 
