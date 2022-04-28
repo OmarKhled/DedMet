@@ -56,6 +56,19 @@ function MyApp({ Component, pageProps }: AppProps) {
       </Head>
       <span id="top"></span>
       <Navbar />
+      <Script
+        strategy="afterInteractive"
+        src={`https://www.googletagmanager.com/gtag/js?id=G-6MZNLHM53M`}
+      />
+
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){dataLayer.push(arguments);}
+                    gtag('js', new Date());
+                    gtag('config', 'G-6MZNLHM53M');
+                `}
+      </Script>
       <Component {...pageProps} />
       <Footer />
       <Script src="https://unpkg.com/@dotlottie/player-component@1.0.0/dist/dotlottie-player.js"></Script>
