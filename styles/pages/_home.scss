@@ -2,7 +2,7 @@
   &.home {
     width: auto;
     max-width: var(--containerWidth);
-    margin-top: 1rem;
+    margin-top: -1.1rem;
     @media (max-width: 700px) {
       margin-top: 5rem;
     }
@@ -18,6 +18,7 @@
   }
   .lottie {
     flex: 0.76;
+    // margin-top: 1rem;
   }
   @media (max-width: 700px) {
     flex-direction: column-reverse;
