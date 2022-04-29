@@ -2,7 +2,6 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, addDoc } from "firebase/firestore";
 import { v1 } from "uuid";
-import sendEmail from "../../../mails/nodeMailer";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDCarRqgo2HNHPWHza6Vp33-OeyLH9G4vQ",
@@ -37,6 +36,8 @@ const handler: (
       };
       if (isStringified(passthrough)) {
         const licenseKey = v1().split("-")[0];
+        const date = new Date();
+        const currentTimestamp = date.getTime();
         const docRef = await addDoc(collection(db, "users"), {
           ...data,
           licenseKey,
@@ -46,6 +47,8 @@ const handler: (
           coupon_savings: body.p_coupon_savings,
           coupon: body.p_coupon,
           event_time: body.event_time,
+          registeredAt: currentTimestamp,
+          expiresAt: currentTimestamp + 8122000,
         });
         console.log(
           body.p_price,
