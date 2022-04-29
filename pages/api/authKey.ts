@@ -35,13 +35,18 @@ const handler: (
   req: NextApiRequest,
   res: NextApiResponse<any>
 ) => void = async (req: NextApiRequest, res: NextApiResponse<any>) => {
-  await cors(req, res);
+  // await cors(req, res);
 
   if (req.method === "OPTIONS") {
     return res.status(200).send("ok");
   }
   console.log("req", req.method);
   if (req.method == "POST") {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader(
+      "Access-Control-Allow-Methods",
+      "GET,OPTIONS,PATCH,DELETE,POST,PUT"
+    );
     const date = new Date();
     const key: string = req.body.key;
     console.log("key ", key, " post");
@@ -54,7 +59,7 @@ const handler: (
         const user = response.docs[0].data();
         console.log(user);
         if (user.expiresAt > date.getTime()) {
-          res.status(200).send({ user: user });
+          res.send({ user: user });
         } else {
           res.status(200).send({ msg: "Expired License" });
         }
@@ -65,7 +70,8 @@ const handler: (
       res.status(200).send({ msg: "Server Error" });
     }
   }
-  res.send({ msg: "Take care" })
+  // res.send({ msg: "Take care" });
+  res.end();
 };
 
 export default handler;
