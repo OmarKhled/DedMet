@@ -24,16 +24,18 @@ const PersonalDetails: FC = () => {
         </div>
         <div className="body">
           {process.env.NODE_ENV == "development" && (
-            <input
-              id={"autoFill"}
-              style={{ width: "fit-content" }}
-              type={"checkbox"}
-              onChange={autoFill}
-            ></input>
+            <>
+              <input
+                id={"autoFill"}
+                style={{ width: "fit-content" }}
+                type={"checkbox"}
+                onChange={autoFill}
+              ></input>
+              <label className="d-inline ms-2" htmlFor="autoFill">
+                Auto Fill
+              </label>
+            </>
           )}
-          <label className="d-inline ms-2" htmlFor="autoFill">
-            Auto Fill
-          </label>
           {Object.keys(errors).length > 0 && (
             <div className="errors">
               {Object.keys(errors).map((key) => (
