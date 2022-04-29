@@ -37,7 +37,7 @@ const handler: (
       if (isStringified(passthrough)) {
         const licenseKey = v1().split("-")[0];
         const date = new Date();
-        const currentTimestamp = date.getTime();
+        const currentTimestamp = date.getTime() / 1000;
         const docRef = await addDoc(collection(db, "users"), {
           ...data,
           licenseKey,
@@ -48,7 +48,7 @@ const handler: (
           coupon: body.p_coupon,
           event_time: body.event_time,
           registeredAt: currentTimestamp,
-          expiresAt: currentTimestamp + 8122000,
+          expiresAt: currentTimestamp + 8035000,
         });
         console.log(
           body.p_price,
