@@ -6,8 +6,16 @@ import {
   where,
   query,
   getDocs,
-  DocumentData,
 } from "firebase/firestore";
+import Cors from "cors";
+import initMiddleware from "../../lib/initMiddleware";
+
+const cors = initMiddleware(
+  Cors({
+    // Only allow requests with GET, POST and OPTIONS
+    methods: ["GET", "POST", "OPTIONS"],
+  })
+);
 
 const firebaseConfig = {
   apiKey: "AIzaSyDCarRqgo2HNHPWHza6Vp33-OeyLH9G4vQ",
@@ -27,13 +35,21 @@ const handler: (
   req: NextApiRequest,
   res: NextApiResponse<any>
 ) => void = async (req: NextApiRequest, res: NextApiResponse<any>) => {
+  await cors(req, res);
+
+  if (req.method === "OPTIONS") {
+    return res.status(200).send("ok");
+  }
+  console.log("req", req.method);
   if (req.method == "POST") {
     const date = new Date();
     const key: string = req.body.key;
+    console.log("key ", key, " post");
     try {
       const usersRef = collection(db, "users");
       const q = query(usersRef, where("licenseKey", "==", key));
       const response = await getDocs(q);
+      // console.log(response.docs);
       if (response.size > 0) {
         const user = response.docs[0].data();
         console.log(user);
@@ -49,6 +65,7 @@ const handler: (
       res.status(200).send({ msg: "Server Error" });
     }
   }
+  res.send({ msg: "Take care" })
 };
 
 export default handler;
