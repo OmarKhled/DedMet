@@ -31,7 +31,7 @@ const PersonalDetails: FC = () => {
                 type={"checkbox"}
                 onChange={autoFill}
               ></input>
-              <label className="d-inline ms-2" htmlFor="autoFill">
+              <label className="d-inline ms-2 " htmlFor="autoFill">
                 Auto Fill
               </label>
             </>
