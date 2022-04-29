@@ -23,12 +23,14 @@ const PersonalDetails: FC = () => {
           <p>Personal Details</p>
         </div>
         <div className="body">
-          <input
-            id={"autoFill"}
-            style={{ width: "fit-content" }}
-            type={"checkbox"}
-            onChange={autoFill}
-          ></input>
+          {process.env.NODE_ENV == "development" && (
+            <input
+              id={"autoFill"}
+              style={{ width: "fit-content" }}
+              type={"checkbox"}
+              onChange={autoFill}
+            ></input>
+          )}
           <label className="d-inline ms-2" htmlFor="autoFill">
             Auto Fill
           </label>
