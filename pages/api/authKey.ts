@@ -35,18 +35,18 @@ const handler: (
   req: NextApiRequest,
   res: NextApiResponse<any>
 ) => void = async (req: NextApiRequest, res: NextApiResponse<any>) => {
-  // await cors(req, res);
+  await cors(req, res);
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader(
+    "Access-Control-Allow-Methods",
+    "GET,OPTIONS,PATCH,DELETE,POST,PUT"
+  );
 
   if (req.method === "OPTIONS") {
     return res.status(200).send("ok");
   }
   console.log("req", req.method);
   if (req.method == "POST") {
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    res.setHeader(
-      "Access-Control-Allow-Methods",
-      "GET,OPTIONS,PATCH,DELETE,POST,PUT"
-    );
     const date = new Date();
     const key: string = req.body.key;
     console.log("key ", key, " post");
