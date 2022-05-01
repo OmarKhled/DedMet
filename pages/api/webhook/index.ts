@@ -41,8 +41,8 @@ const handler: (
         const docRef = await addDoc(
           collection(
             db,
-            // `${process.env.NODE_ENV == "development" ? "mockUsers" : "users"}`
-            "mockUsers"
+            `${process.env.NODE_ENV == "development" ? "mockUsers" : "users"}`
+            // "mockUsers"
           ),
           {
             ...data,
