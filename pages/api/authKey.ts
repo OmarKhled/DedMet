@@ -41,6 +41,7 @@ const handler: (
     "Access-Control-Allow-Methods",
     "GET,OPTIONS,PATCH,DELETE,POST,PUT"
   );
+  res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
 
   if (req.method === "OPTIONS") {
     return res.status(200).send("ok");

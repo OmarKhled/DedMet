@@ -38,18 +38,25 @@ const handler: (
         const licenseKey = v1().split("-")[0];
         const date = new Date();
         const currentTimestamp = date.getTime();
-        const docRef = await addDoc(collection(db, "users"), {
-          ...data,
-          licenseKey,
-          currency: body.p_currency,
-          price: body.p_price,
-          order_id: body.p_order_id,
-          coupon_savings: body.p_coupon_savings,
-          coupon: body.p_coupon,
-          event_time: body.event_time,
-          registeredAt: currentTimestamp,
-          expiresAt: currentTimestamp + 8035000 * 1000,
-        });
+        const docRef = await addDoc(
+          collection(
+            db,
+            // `${process.env.NODE_ENV == "development" ? "mockUsers" : "users"}`
+            "mockUsers"
+          ),
+          {
+            ...data,
+            licenseKey,
+            currency: body.p_currency,
+            price: body.p_price,
+            order_id: body.p_order_id,
+            coupon_savings: body.p_coupon_savings,
+            coupon: body.p_coupon,
+            event_time: body.event_time,
+            registeredAt: currentTimestamp,
+            expiresAt: currentTimestamp + 8035000 * 1000,
+          }
+        );
         console.log(
           body.p_price,
           data.email,
