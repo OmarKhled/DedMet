@@ -40,7 +40,7 @@ const PersonalDetails: FC = () => {
             <div className="errors">
               {Object.keys(errors).map((key) => (
                 <div key={key}>
-                  <small>{errors[key].message}</small>
+                  <small>{String(errors[key]?.message)}</small>
                 </div>
               ))}
             </div>
